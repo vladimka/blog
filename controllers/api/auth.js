@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
 const db = require('../../db');
+const { Router } = require('express');
+const app = Router();
 
-module.exports = {
+let paths = {
     login : async (req, res) => {
         let { login, password } = req.body;
         let user = db.get('users').find({ login }).value();
@@ -33,10 +35,16 @@ module.exports = {
                 created_at : Date.now(),
                 name : data.name,
                 login : data.login,
-                password : data.password
+                password : data.password,
+                balance : 0
             })
             .write();
     
         await res.status(200).send('ok');
     }
 }
+
+app.get('/auth', paths.login);
+app.get('/register', paths.register);
+
+module.exports = app;

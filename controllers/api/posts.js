@@ -1,8 +1,10 @@
-const { get, create } = require('../../db');
 const db = require('../../db');
 const jwt = require('jsonwebtoken');
+const { Router } = require('express');
+const app = Router();
+const { authCheck } = require('./utils');
 
-module.exports = {
+let methods = {
     async get(req, res){
         let query_params = req.query;
         delete query_params.token;
@@ -40,3 +42,11 @@ module.exports = {
         await res.json({ status : 'ok', post_id });
     }
 }
+
+app.get('/:method', authCheck(), async (req, res) => {
+    let { method } = req.params;
+
+    return await methods[method](req, res);
+});
+
+module.exports = app;

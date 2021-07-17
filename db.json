@@ -6,7 +6,8 @@
       "name": "Vladimka",
       "login": "admin",
       "password": "admin",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI1ODM0NDI4fQ.IdKYf2SzBfzMTDsnZQ168cxdQY6apIwK8FJqQowv3TA"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI1ODM0NDI4fQ.IdKYf2SzBfzMTDsnZQ168cxdQY6apIwK8FJqQowv3TA",
+      "balance": 0
     }
   ],
   "posts": [
