@@ -4,7 +4,7 @@ const controllers = require('./controllers/');
 const app = express();
 
 app.use(morgan('dev'));
-app.use('/api', controllers.api);
+app.use('/', controllers);
 
 app.get('/', async (req, res) => await res.send('index'));
 
