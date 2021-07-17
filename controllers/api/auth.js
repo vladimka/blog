@@ -1,11 +1,13 @@
 const jwt = require('jsonwebtoken');
 const db = require('../../db');
-const { Router } = require('express');
+const { Router, urlencoded } = require('express');
 const app = Router();
+
+app.use(urlencoded({ extended : true }));
 
 let paths = {
     login : async (req, res) => {
-        let { login, password } = req.body;
+        let { login, password } = req.query;
         let user = db.get('users').find({ login }).value();
     
         if(!user || user.password !== password)
@@ -21,7 +23,7 @@ let paths = {
         await res.json({ token });
     },
     register : async (req, res) => {
-        let data = req.body;
+        let data = req.query;
     
         if(!data.login || !data.password)
             return await res.json({ error : 'login or password expected' });
@@ -44,7 +46,7 @@ let paths = {
     }
 }
 
-app.get('/auth', paths.login);
-app.get('/register', paths.register);
+app.post('/auth', paths.login);
+app.post('/register', paths.register);
 
 module.exports = app;
