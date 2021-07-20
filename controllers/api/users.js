@@ -11,7 +11,7 @@ let methods = {
         if(!user)
             return await res.json({ error : 'User not found' });
     
-        await res.json({ id : user.id, created_at : user.created_at, name : user.name, balance : user.balance });
+        await res.json({ id : user.id, created_at : user.created_at, name : user.name, balance : user.balance, avatarUrl : user.avatarUrl });
     }
 }
 

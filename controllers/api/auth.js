@@ -38,11 +38,12 @@ let paths = {
                 name : data.name,
                 login : data.login,
                 password : data.password,
-                balance : 0
+                balance : 0,
+                avatarUrl : ''
             })
             .write();
     
-        await res.status(200).send('ok');
+        await res.status(200).json({ status : 'ok' });
     }
 }
 

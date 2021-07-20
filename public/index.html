@@ -9,15 +9,23 @@
 </head>
 <body>
     <header>
-        <h1>Blog Test</h1>
+        <div class="container">
+            <h1>Blog Test</h1>
+            <button class="name" onclick="logout()"></button>
+        </div>
     </header>
-    <div class="pageContent">
+    <div class="profile block container">
         <img id="avatar">
         <div class="userInfo">
-            <p id="name"></p>
+            <p class="name"></p>
             <p>Balance: <span id="balance"></span></p>
         </div>
     </div>
+    <div class="block addPost container">
+        <input id="postBody"></input>
+        <button>Post</button>
+    </div>
+    <div class="container posts"></div>
     <script src="js/index.js"></script>
 </body>
 </html>

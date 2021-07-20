@@ -9,6 +9,7 @@ app.use(express.static('./public'));
 
 app.get('/', async (req, res) => await res.send('index'));
 app.get('/login', async (req, res) => await res.sendFile(__dirname + '/public/login.html'));
+app.get('/register', async (req, res) => await res.sendFile(__dirname + '/public/register.html'));
 
 app.listen(80, '0.0.0.0', err => {
     if(err)

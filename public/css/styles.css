@@ -15,6 +15,12 @@ header{
     color: white;
 }
 
+header>.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .form{
     position: fixed;
     top: 50%;
@@ -46,11 +52,15 @@ header{
     color : red;
 }
 
-.pageContent{
-    margin: 10px;
+.block{
     padding: 5px;
     background-color: #fff;
     border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.profile{
     display: flex;
 }
 
@@ -65,7 +75,42 @@ header{
     /* background: grey; */
 }
 
-.userInfo>#name{
+.userInfo>.name{
     font-size: 24px;
     font-weight: bold;
+}
+
+.container{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+header>.container>.name{
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+header>.container>.name:hover{
+    text-decoration: underline;
+}
+
+#postBody{
+    background-color: #d0d9e2;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    min-width: 85%;
+}
+
+.addPost>button{
+    height: 100%;
+    border: none;
+    padding: 10px;
+    background-color: lightblue;
+    color: #2a2c2d;
+    font-weight: bold;
+    border-radius: 5px;
 }
