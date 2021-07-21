@@ -3,22 +3,14 @@ const { Router } = require('express');
 const app = Router();
 const { authCheck } = require('./utils');
 
-let methods = {
-    get : async (req, res) => {
-        let id = parseInt(req.query.user_id);
-        let user = await db.get('users').find({ id }).value() || await db.get('users').find({ id : req.user.id }).value();
-    
-        if(!user)
-            return await res.json({ error : 'User not found' });
-    
-        await res.json({ id : user.id, created_at : user.created_at, name : user.name, balance : user.balance, avatarUrl : user.avatarUrl });
-    }
-}
+app.get('/get', authCheck(), async (req, res) => {
+    let id = parseInt(req.query.user_id);
+    let user = await db.get('users').find({ id }).value() || await db.get('users').find({ id : req.user.id }).value();
 
-app.get('/:method', authCheck(), async (req, res) => {
-    let { method } = req.params;
+    if(!user)
+        return await res.json({ error : 'User not found' });
 
-    return await methods[method](req, res);
+    await res.json({ id : user.id, created_at : user.created_at, name : user.name, balance : user.balance, avatarUrl : user.avatarUrl });
 });
 
 module.exports = app;

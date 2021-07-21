@@ -8,24 +8,13 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Blog Test</h1>
-            <button class="name" onclick="logout()"></button>
-        </div>
-    </header>
-    <div class="profile block container">
-        <img id="avatar">
-        <div class="userInfo">
-            <p class="name"></p>
-            <p>Balance: <span id="balance"></span></p>
-        </div>
+    <div class="balanceInfo">
+        <h1>Balance: <span id="balance">0.000</span> Coins</h1>
+        <p>Income per click: <span id="ipc">0.001</span> Coins</p>
+        <p>Income per second: <span id="ips">0.000</span> Coins</p>
     </div>
-    <div class="block addPost container">
-        <input id="postBody"></input>
-        <button>Post</button>
-    </div>
-    <div class="container posts"></div>
+    <button onclick="socket.emit('userWork')" class="workBtn">Work</button>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
